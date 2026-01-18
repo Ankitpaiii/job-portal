@@ -39,24 +39,24 @@ export class Login {
   ) { }
 
   onLogin() {
-    if (this.role === 'applicant') {
-      this.applicantService.login(this.email).subscribe(users => {
-        if (users.length > 0) {
-          this.snackBar.open('Login Successful as Applicant', 'Close', { duration: 3000 });
-          this.router.navigate(['/jobs']);
-        } else {
-          this.snackBar.open('Invalid Applicant Email', 'Close', { duration: 3000 });
-        }
-      });
+    if (this.email) {
+      // Fake Login Logic as requested
+      const user = {
+        email: this.email,
+        role: this.role
+      };
+
+      localStorage.setItem('user', JSON.stringify(user));
+
+      this.snackBar.open(`Login Successful as ${this.role}`, 'Close', { duration: 3000 });
+
+      if (this.role === 'company') {
+        this.router.navigate(['/dashboard']);
+      } else {
+        this.router.navigate(['/jobs']);
+      }
     } else {
-      this.companyService.login(this.email).subscribe(companies => {
-        if (companies.length > 0) {
-          this.snackBar.open('Login Successful as Company', 'Close', { duration: 3000 });
-          this.router.navigate(['/dashboard']);
-        } else {
-          this.snackBar.open('Invalid Company Email', 'Close', { duration: 3000 });
-        }
-      });
+      this.snackBar.open('Please enter an email', 'Close', { duration: 3000 });
     }
   }
 }

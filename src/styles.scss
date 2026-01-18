@@ -1,12 +1,23 @@
 @use '@angular/material' as mat;
 
+// Use prebuilt theme to avoid version compatibility issues with Sass mixins
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Custom Overrides below... */
+
+/* Custom Overrides below... */
+
 :root {
-  --primary-color: #2563eb; /* Royal Blue */
+  --primary-color: #2563eb;
+  /* Royal Blue */
   --primary-dark: #1e40af;
   --primary-light: #60a5fa;
-  --secondary-color: #64748b; /* Slate Grey */
-  --accent-color: #f59e0b; /* Amber */
-  --background-bg: #f8fafc; /* Very light slate */
+  --secondary-color: #64748b;
+  /* Slate Grey */
+  --accent-color: #f59e0b;
+  /* Amber */
+  --background-bg: #f8fafc;
+  /* Very light slate */
   --surface-color: #ffffff;
   --text-main: #0f172a;
   --text-secondary: #475569;
@@ -17,8 +28,9 @@
   --font-family: 'Inter', 'Roboto', sans-serif;
 }
 
-html, body { 
-  height: 100%; 
+html,
+body {
+  height: 100%;
   margin: 0;
   background-color: var(--background-bg);
   color: var(--text-main);
@@ -27,7 +39,12 @@ html, body {
 }
 
 /* Global Typography Overrides */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0 0 1rem;
   font-weight: 600;
   color: var(--text-main);
@@ -58,9 +75,8 @@ p {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
   transition: transform 0.2s, box-shadow 0.2s;
-  
+
   &:hover {
     box-shadow: var(--shadow-md);
   }
 }
-

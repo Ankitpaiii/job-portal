@@ -5,6 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 import { Job } from '../../models/job.model';
 import { JobService } from '../../services/job.service';
 
@@ -17,7 +18,8 @@ import { JobService } from '../../services/job.service';
     MatTableModule,
     MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterLink
   ],
   templateUrl: './company-dashboard.html',
   styleUrls: ['./company-dashboard.scss']
