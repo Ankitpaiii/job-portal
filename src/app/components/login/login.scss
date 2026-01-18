@@ -1,0 +1,15 @@
+.login-container {
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 20px;
+}

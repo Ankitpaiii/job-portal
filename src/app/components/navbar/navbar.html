@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="main-toolbar">
+    <div class="container toolbar-container">
+        <a routerLink="/" class="brand-logo">
+            <mat-icon>work_outline</mat-icon>
+            <span>JobHub</span>
+        </a>
+        
+        <span class="spacer"></span>
+        
+        <div class="nav-links">
+            <button mat-button routerLink="/jobs" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: false}">
+                <mat-icon>list</mat-icon> Find Jobs
+            </button>
+            <button mat-button routerLink="/dashboard" routerLinkActive="active-link">
+                <mat-icon>dashboard</mat-icon> For Companies
+            </button>
+            <a mat-stroked-button color="accent" routerLink="/login" class="login-btn">
+                Log In
+            </a>
+        </div>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,50 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Software Engineer",
+      "companyId": 1,
+      "location": "Remote",
+      "type": "Full-time",
+      "description": "We are looking for a skilled Software Engineer with Angular experience.",
+      "salary": "120000",
+      "postedDate": "2023-10-01"
+    },
+    {
+      "id": 2,
+      "title": "Product Manager",
+      "companyId": 1,
+      "location": "New York, NY",
+      "type": "Full-time",
+      "description": "Join our team as a Product Manager and lead our product vision.",
+      "salary": "130000",
+      "postedDate": "2023-10-05"
+    },
+    {
+      "id": 3,
+      "title": "UX Designer",
+      "companyId": 2,
+      "location": "San Francisco, CA",
+      "type": "Contract",
+      "description": "Creative UX Designer needed for a 6-month project.",
+      "salary": "80000",
+      "postedDate": "2023-10-10"
+    }
+  ],
+  "companies": [
+    {
+      "id": 1,
+      "name": "Tech Corp",
+      "email": "contact@techcorp.com",
+      "password": "password123"
+    },
+    {
+      "id": 2,
+      "name": "Design Studio",
+      "email": "hello@designstudio.com",
+      "password": "password123"
+    }
+  ],
+  "applicants": [],
+  "applications": []
+}

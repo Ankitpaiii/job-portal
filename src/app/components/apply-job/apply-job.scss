@@ -1,0 +1,110 @@
+.apply-page-container {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1rem;
+    background-color: var(--background-bg);
+    min-height: 80vh;
+}
+
+.apply-card {
+    width: 100%;
+    max-width: 700px;
+    padding: 1rem;
+
+    mat-card-header {
+        margin-bottom: 2rem;
+    }
+
+    .header-icon {
+        background-color: #eff6ff;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+}
+
+.apply-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.half-width {
+    flex: 1;
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.file-upload-section {
+    margin-bottom: 1rem;
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+    }
+
+    .upload-box {
+        border: 2px dashed #cbd5e1;
+        border-radius: 8px;
+        padding: 2rem;
+        text-align: center;
+        background: #f8fafc;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:hover {
+            border-color: var(--primary-color);
+            background: #eff6ff;
+        }
+
+        mat-icon {
+            color: var(--text-secondary);
+            font-size: 32px;
+            width: 32px;
+            height: 32px;
+        }
+
+        span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+
+            a {
+                color: var(--primary-color);
+                text-decoration: none;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.submit-btn {
+    padding: 0 2rem;
+}

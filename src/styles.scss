@@ -1,0 +1,66 @@
+@use '@angular/material' as mat;
+
+:root {
+  --primary-color: #2563eb; /* Royal Blue */
+  --primary-dark: #1e40af;
+  --primary-light: #60a5fa;
+  --secondary-color: #64748b; /* Slate Grey */
+  --accent-color: #f59e0b; /* Amber */
+  --background-bg: #f8fafc; /* Very light slate */
+  --surface-color: #ffffff;
+  --text-main: #0f172a;
+  --text-secondary: #475569;
+  --border-radius: 12px;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --font-family: 'Inter', 'Roboto', sans-serif;
+}
+
+html, body { 
+  height: 100%; 
+  margin: 0;
+  background-color: var(--background-bg);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Global Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+p {
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Global Components */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1.5rem !important;
+  font-weight: 500 !important;
+}
+
+.card {
+  background: var(--surface-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+

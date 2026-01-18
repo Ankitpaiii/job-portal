@@ -1,0 +1,103 @@
+<div class="detail-container" *ngIf="job">
+    <!-- Header Banner -->
+    <div class="job-banner">
+        <div class="banner-content">
+            <div class="company-logo-placeholder">
+                <mat-icon>business</mat-icon>
+            </div>
+            <div class="job-info">
+                <h1>{{ job.title }}</h1>
+                <p class="subtitle">
+                    <span class="company">Tech Company #{{ job.companyId }}</span> •
+                    <span class="location"><mat-icon>place</mat-icon> {{ job.location }}</span>
+                </p>
+            </div>
+            <div class="action-buttons">
+                <button mat-flat-button color="primary" class="apply-btn" [routerLink]="['/apply', job.id]">
+                    Apply Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="main-column">
+            <mat-card class="description-card">
+                <mat-card-content>
+                    <h2>Job Description</h2>
+                    <p class="description-text">{{ job.description }}</p>
+
+                    <h3>Requirements</h3>
+                    <ul class="requirements-list">
+                        <li>Experience with Angular and TypeScript.</li>
+                        <li>Understanding of REST APIs and HTTP.</li>
+                        <li>Strong problem-solving skills.</li>
+                        <li>Ability to work in a team.</li>
+                    </ul>
+
+                    <h3>Benefits</h3>
+                    <ul class="benefits-list">
+                        <li>Competitive Salary</li>
+                        <li>Remote Friendly</li>
+                        <li>Health Insurance</li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="sidebar-column">
+            <mat-card class="overview-card">
+                <mat-card-header>
+                    <mat-card-title>Job Overview</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="overview-item">
+                        <mat-icon color="primary">attach_money</mat-icon>
+                        <div>
+                            <span class="label">Salary</span>
+                            <span class="value">{{ job.salary | currency:'USD':'symbol':'1.0-0' }}</span>
+                        </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="overview-item">
+                        <mat-icon color="primary">event</mat-icon>
+                        <div>
+                            <span class="label">Posted Date</span>
+                            <span class="value">{{ job.postedDate | date }}</span>
+                        </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="overview-item">
+                        <mat-icon color="primary">work</mat-icon>
+                        <div>
+                            <span class="label">Job Type</span>
+                            <span class="value">{{ job.type }}</span>
+                        </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="overview-item">
+                        <mat-icon color="primary">location_on</mat-icon>
+                        <div>
+                            <span class="label">Location</span>
+                            <span class="value">{{ job.location }}</span>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" class="full-width" [routerLink]="['/apply', job.id]">
+                        APPLY FOR THIS JOB
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+
+            <button mat-stroked-button color="primary" class="full-width back-btn" routerLink="/jobs">
+                <mat-icon>arrow_back</mat-icon> Back to Jobs
+            </button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!job" class="loading-state">
+    <mat-icon class="spinner">sync</mat-icon>
+    <p>Loading job details...</p>
+</div>

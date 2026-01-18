@@ -1,0 +1,80 @@
+<div class="page-container">
+    <div class="sidebar">
+        <div class="filter-card">
+            <div class="filter-header">
+                <h3>Filters</h3>
+                <button mat-button color="warn" (click)="clearFilters()"
+                    *ngIf="searchTitle || filterLocation || filterType">
+                    Clear
+                </button>
+            </div>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Search Title</mat-label>
+                <mat-icon matPrefix>search</mat-icon>
+                <input matInput [(ngModel)]="searchTitle" placeholder="e.g. Engineer">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Location</mat-label>
+                <mat-select [(ngModel)]="filterLocation">
+                    <mat-option value="">All Locations</mat-option>
+                    <mat-option *ngFor="let loc of uniqueLocations" [value]="loc">{{ loc }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Job Type</mat-label>
+                <mat-select [(ngModel)]="filterType">
+                    <mat-option value="">All Types</mat-option>
+                    <mat-option *ngFor="let type of uniqueTypes" [value]="type">{{ type }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="results-header">
+            <h2>{{ filteredJobs.length }} Jobs Found</h2>
+            <p class="text-secondary">Showing open positions based on your preferences</p>
+        </div>
+
+        <div class="job-grid" *ngIf="filteredJobs.length > 0; else noJobs">
+            <mat-card class="job-card" *ngFor="let job of filteredJobs">
+                <div class="card-body">
+                    <div class="job-header">
+                        <div>
+                            <mat-card-title>{{ job.title }}</mat-card-title>
+                            <mat-card-subtitle class="company-name">Tech Company #{{ job.companyId
+                                }}</mat-card-subtitle>
+                        </div>
+                        <div class="salary-badge">{{ job.salary | currency:'USD':'symbol':'1.0-0' }}</div>
+                    </div>
+
+                    <div class="chips-container">
+                        <span class="chip location"><mat-icon>place</mat-icon> {{ job.location }}</span>
+                        <span class="chip type"><mat-icon>work</mat-icon> {{ job.type }}</span>
+                        <span class="chip date"><mat-icon>schedule</mat-icon> {{ job.postedDate | date }}</span>
+                    </div>
+
+                    <p class="job-description">{{ job.description | slice:0:100 }}...</p>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                <mat-card-actions align="end">
+                    <button mat-button color="primary" [routerLink]="['/jobs', job.id]">VIEW DETAILS</button>
+                    <button mat-flat-button color="primary" [routerLink]="['/apply', job.id]">APPLY NOW</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+        <ng-template #noJobs>
+            <div class="empty-state">
+                <mat-icon>sentiment_dissatisfied</mat-icon>
+                <h3>No jobs found matching criteria</h3>
+                <button mat-stroked-button color="primary" (click)="clearFilters()">Clear Filters</button>
+            </div>
+        </ng-template>
+    </div>
+</div>
