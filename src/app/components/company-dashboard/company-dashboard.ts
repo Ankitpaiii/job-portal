@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { Job } from '../../models/job.model';
 import { JobService } from '../../services/job.service';
+import { ApplicantService } from '../../services/applicant.service';
+import { Application } from '../../models/application.model';
 
 @Component({
   selector: 'app-company-dashboard',
@@ -26,14 +28,23 @@ import { JobService } from '../../services/job.service';
 })
 export class CompanyDashboard implements OnInit {
   jobs: Job[] = [];
-  displayedColumns: string[] = ['title', 'location', 'type', 'postedDate', 'actions'];
+  displayedColumns: string[] = ['name', 'email', 'date', 'status', 'actions'];
+
+  // Tab Control
+  selectedTabIndex = 0;
+  selectedJobId: number | null = null;
+  selectedJobTitle: string = '';
+  selectedJobApplications: Application[] = [];
 
   // Stats
   totalJobs = 0;
   totalApplicants = 0;
   totalViews = 0;
 
-  constructor(private jobService: JobService) { }
+  constructor(
+    private jobService: JobService,
+    private applicantService: ApplicantService
+  ) { }
 
   ngOnInit(): void {
     // Mock Company ID 1
@@ -48,7 +59,27 @@ export class CompanyDashboard implements OnInit {
 
   calculateStats() {
     this.totalJobs = this.jobs.length;
-    this.totalApplicants = this.jobs.length * 5 + 12; // Mock data
-    this.totalViews = this.jobs.length * 120 + 45; // Mock data
+
+    // Real-time calculations
+    this.totalApplicants = this.jobs.reduce((acc, job) => acc + (job.applications ? job.applications.length : 0), 0);
+    this.totalViews = this.jobs.reduce((acc, job) => acc + (job.views || 0), 0);
+  }
+
+  viewCandidates(jobId: number) {
+    const job = this.jobs.find(j => j.id === jobId);
+    if (job) {
+      this.selectedJobId = jobId;
+      this.selectedJobTitle = job.title;
+      this.selectedTabIndex = 1; // Switch to "Recent Applications" tab
+      console.log(`Viewing candidates for job: ${job.title} (${jobId})`);
+
+      this.applicantService.getApplicationsByJob(jobId).subscribe({
+        next: (apps) => {
+          this.selectedJobApplications = apps;
+          console.log('Fetched applications:', apps);
+        },
+        error: (e) => console.error('Error fetching applications:', e)
+      });
+    }
   }
 }

@@ -1,3 +1,5 @@
+import { Application } from "./application.model";
+
 export interface Job {
   id: number;
   title: string;
@@ -7,4 +9,6 @@ export interface Job {
   description: string;
   salary: string;
   postedDate: string;
+  views?: number;
+  applications?: Application[]; // Embedded from json-server
 }

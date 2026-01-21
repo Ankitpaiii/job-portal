@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatAutocompleteModule } from '@angular/material/autocomplete'; // Added
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterLink } from '@angular/router';
 import { Job } from '../../models/job.model';
@@ -29,7 +29,7 @@ import { JobService } from '../../services/job.service';
     MatIconModule,
     MatChipsModule,
     MatDividerModule,
-    MatAutocompleteModule, // Added
+    MatAutocompleteModule,
     MatProgressSpinnerModule,
     RouterLink
   ],
@@ -75,9 +75,13 @@ export class JobList implements OnInit {
   isLoading: boolean = true;
   errorMessage: string = '';
 
-  constructor(private jobService: JobService) { }
+  constructor(
+    private jobService: JobService,
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.jobService.getJobs().subscribe({
       next: (data) => {
         this.jobs = data;
@@ -85,11 +89,13 @@ export class JobList implements OnInit {
         this.allTitles = [...new Set(data.map(job => job.title))];
         this.applyFilters(); // Initial filter
         this.isLoading = false;
+        this.cdr.detectChanges(); // Force update
       },
       error: (e) => {
         console.error(e);
         this.errorMessage = 'Failed to load jobs. Please ensure JSON Server is running on port 3000.';
         this.isLoading = false;
+        this.cdr.detectChanges(); // Force update
       }
     });
   }

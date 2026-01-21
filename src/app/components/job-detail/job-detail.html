@@ -97,7 +97,13 @@
     </div>
 </div>
 
-<div *ngIf="!job" class="loading-state">
+<div *ngIf="isLoading" class="loading-state">
     <mat-icon class="spinner">sync</mat-icon>
-    <p>Loading job details...</p>
+    <p>Loading job details... (ID: {{ debugId }})</p>
+</div>
+
+<div *ngIf="errorMessage" class="error-state" style="text-align: center; padding: 2rem;">
+    <mat-icon color="warn" style="font-size: 48px; height: 48px; width: 48px;">error_outline</mat-icon>
+    <p style="margin-top: 1rem; color: #f44336;">{{ errorMessage }}</p>
+    <button mat-stroked-button color="primary" routerLink="/jobs">Back to Jobs</button>
 </div>

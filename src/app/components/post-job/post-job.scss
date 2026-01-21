@@ -1,0 +1,43 @@
+.post-job-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+
+    mat-card {
+        padding: 2rem;
+    }
+
+    mat-card-header {
+        margin-bottom: 2rem;
+
+        mat-card-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+    }
+
+    .full-width {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .row {
+        display: flex;
+        gap: 1rem;
+
+        .half-width {
+            flex: 1;
+        }
+    }
+
+    .actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 1rem;
+
+        button {
+            padding: 0.5rem 2rem;
+        }
+    }
+}

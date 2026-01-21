@@ -20,10 +20,18 @@ export class JobService {
     }
 
     addJob(job: Job): Observable<Job> {
-        return this.http.post<Job>(this.apiUrl, job);
+        // Initialize views to 0 for new jobs
+        const jobWithViews = { ...job, views: 0 };
+        return this.http.post<Job>(this.apiUrl, jobWithViews);
     }
 
     getJobsByCompany(companyId: number): Observable<Job[]> {
-        return this.http.get<Job[]>(`${this.apiUrl}?companyId=${companyId}`);
+        // Embed applications to get real counts
+        return this.http.get<Job[]>(`${this.apiUrl}?companyId=${companyId}&_embed=applications`);
+    }
+
+    incrementJobView(job: Job): Observable<Job> {
+        const updatedViews = (job.views || 0) + 1;
+        return this.http.patch<Job>(`${this.apiUrl}/${job.id}`, { views: updatedViews });
     }
 }

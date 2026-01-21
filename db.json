@@ -8,9 +8,10 @@
       "type": "Full Time",
       "experience": "2-4 Years",
       "salary": "80000",
-      "postedDate": "2023-10-25",
+      "postedDate": "2026-01-10",
       "description": "We are looking for an experienced Angular Developer to join our team...",
-      "companyId": 1
+      "companyId": 1,
+      "views": 3
     },
     {
       "id": 2,
@@ -20,9 +21,10 @@
       "type": "Internship",
       "experience": "0-1 Year",
       "salary": "20000",
-      "postedDate": "2023-11-01",
+      "postedDate": "2025-12-31",
       "description": "Great opportunity for freshers to learn frontend technologies...",
-      "companyId": 2
+      "companyId": 2,
+      "views": 0
     },
     {
       "id": 3,
@@ -32,9 +34,10 @@
       "type": "Contract",
       "experience": "3+ Years",
       "salary": "120000",
-      "postedDate": "2023-10-15",
+      "postedDate": "2025-12-22",
       "description": "Looking for Node.js backend developer for a 6 month contract...",
-      "companyId": 3
+      "companyId": 3,
+      "views": 0
     },
     {
       "id": 4,
@@ -44,9 +47,10 @@
       "type": "Full Time",
       "experience": "4-6 Years",
       "salary": "150000",
-      "postedDate": "2023-11-05",
+      "postedDate": "2025-12-30",
       "description": "Seeking Full Stack Developer with Angular and Java experience...",
-      "companyId": 4
+      "companyId": 4,
+      "views": 0
     },
     {
       "id": 5,
@@ -56,9 +60,10 @@
       "type": "Remote",
       "experience": "2+ Years",
       "salary": "90000",
-      "postedDate": "2023-11-08",
+      "postedDate": "2026-01-05",
       "description": "Work remotely with our mobile team...",
-      "companyId": 5
+      "companyId": 5,
+      "views": 0
     },
     {
       "id": 6,
@@ -68,9 +73,10 @@
       "type": "Part Time",
       "experience": "1-3 Years",
       "salary": "60000",
-      "postedDate": "2023-11-10",
+      "postedDate": "2026-01-16",
       "description": "Creative designer needed for our food delivery app...",
-      "companyId": 6
+      "companyId": 6,
+      "views": 0
     },
     {
       "id": 7,
@@ -80,9 +86,10 @@
       "type": "Full Time",
       "experience": "5+ Years",
       "salary": "250000",
-      "postedDate": "2023-11-12",
+      "postedDate": "2025-12-26",
       "description": "Join our cloud infrastructure team...",
-      "companyId": 7
+      "companyId": 7,
+      "views": 0
     },
     {
       "id": 8,
@@ -92,9 +99,10 @@
       "type": "Full Time",
       "experience": "3+ Years",
       "salary": "200000",
-      "postedDate": "2023-11-15",
+      "postedDate": "2026-01-10",
       "description": "Analyze large datasets to improve search algorithms...",
-      "companyId": 8
+      "companyId": 8,
+      "views": 0
     },
     {
       "id": 9,
@@ -104,9 +112,10 @@
       "type": "Contract",
       "experience": "2-4 Years",
       "salary": "70000",
-      "postedDate": "2023-11-18",
+      "postedDate": "2025-12-31",
       "description": "Ensure quality of our financial software products...",
-      "companyId": 9
+      "companyId": 9,
+      "views": 0
     },
     {
       "id": 10,
@@ -116,9 +125,10 @@
       "type": "Full Time",
       "experience": "2+ Years",
       "salary": "50000",
-      "postedDate": "2023-11-20",
+      "postedDate": "2025-12-27",
       "description": "Write technical documentation for our SaaS products...",
-      "companyId": 10
+      "companyId": 10,
+      "views": 0
     }
   ],
   "companies": [
@@ -163,5 +173,42 @@
       "name": "Zoho"
     }
   ],
-  "applications": []
+  "applications": [
+    {
+      "name": "r",
+      "email": "nan@gmail.com",
+      "phone": "r",
+      "experience": "3-5",
+      "coverLetter": "r",
+      "jobId": 2,
+      "applicationDate": "2026-01-20T15:11:21.824Z",
+      "status": "pending",
+      "applicantId": 1,
+      "id": 1
+    },
+    {
+      "name": "A",
+      "email": "b@gmil.com",
+      "phone": "nd",
+      "experience": "3-5",
+      "coverLetter": "d",
+      "jobId": 2,
+      "applicationDate": "2026-01-20T15:12:29.048Z",
+      "status": "pending",
+      "applicantId": 1,
+      "id": 2
+    },
+    {
+      "name": "k",
+      "email": "y@gmail.com",
+      "phone": "o",
+      "experience": "2-3",
+      "coverLetter": "",
+      "jobId": 1,
+      "applicationDate": "2026-01-20T15:14:28.544Z",
+      "status": "pending",
+      "applicantId": 1,
+      "id": 3
+    }
+  ]
 }
