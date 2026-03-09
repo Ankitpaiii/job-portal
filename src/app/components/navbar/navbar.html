@@ -1,0 +1,27 @@
+<mat-toolbar color="primary" class="main-toolbar">
+    <div class="container toolbar-container">
+        <a routerLink="/" class="brand-logo">
+            <mat-icon>work_outline</mat-icon>
+            <span>JobHub</span>
+        </a>
+
+        <span class="spacer"></span>
+
+        <div class="nav-links">
+            <button mat-button routerLink="/jobs" routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{exact: false}">
+                <mat-icon>list</mat-icon> Find Jobs
+            </button>
+            <button mat-button routerLink="/dashboard" routerLinkActive="active-link"
+                *ngIf="isLoggedIn() && getUserRole() === 'company'">
+                <mat-icon>dashboard</mat-icon> Dashboard
+            </button>
+            <button mat-button color="warn" (click)="logout()" *ngIf="isLoggedIn()" class="logout-btn">
+                <mat-icon>logout</mat-icon> Logout
+            </button>
+            <a mat-stroked-button color="accent" routerLink="/login" class="login-btn" *ngIf="!isLoggedIn()">
+                Log In
+            </a>
+        </div>
+    </div>
+</mat-toolbar>

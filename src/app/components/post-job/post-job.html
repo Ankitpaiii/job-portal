@@ -1,0 +1,63 @@
+<div class="post-job-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Post a New Job</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Job Title</mat-label>
+                    <input matInput formControlName="title" placeholder="e.g. Senior Angular Developer">
+                    <mat-error *ngIf="jobForm.get('title')?.hasError('required')">Title is required</mat-error>
+                </mat-form-field>
+
+                <div class="row">
+                    <mat-form-field appearance="outline" class="half-width">
+                        <mat-label>Location</mat-label>
+                        <input matInput formControlName="location" placeholder="e.g. Bangalore">
+                        <mat-error *ngIf="jobForm.get('location')?.hasError('required')">Location is
+                            required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="half-width">
+                        <mat-label>Job Type</mat-label>
+                        <mat-select formControlName="type">
+                            <mat-option *ngFor="let type of jobTypes" [value]="type">{{ type }}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="jobForm.get('type')?.hasError('required')">Job Type is required</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field appearance="outline" class="half-width">
+                        <mat-label>Salary</mat-label>
+                        <input matInput formControlName="salary" placeholder="e.g. 1200000">
+                        <mat-error *ngIf="jobForm.get('salary')?.hasError('required')">Salary is required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="half-width">
+                        <mat-label>Experience</mat-label>
+                        <input matInput formControlName="experience" placeholder="e.g. 3-5 Years">
+                        <mat-error *ngIf="jobForm.get('experience')?.hasError('required')">Experience is
+                            required</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Job Description</mat-label>
+                    <textarea matInput formControlName="description" rows="5"
+                        placeholder="Enter detailed job description..."></textarea>
+                    <mat-error *ngIf="jobForm.get('description')?.hasError('required')">Description is
+                        required</mat-error>
+                </mat-form-field>
+
+                <div class="actions">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="!jobForm.valid">POST
+                        JOB</button>
+                    <button mat-button type="button" routerLink="/dashboard">CANCEL</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
