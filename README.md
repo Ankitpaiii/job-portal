@@ -1,270 +1,115 @@
-# 💼 Job Portal Application
+# 💼 Job Portal and Recruitment Management System
 
-A modern, responsive, and fully functional **Job Portal application** built using **Angular 21** and **Angular Material**.
-
-This project uses a **mock REST API backend powered by json-server** to simulate real-world data interactions like job browsing, applying for positions, and a protected company dashboard for posting new jobs.
+A premium, modern Single Page Application (SPA) built using **Angular v21** and **TypeScript** designed to streamline the recruitment process. This project features a robust architecture including route guards, child routes, reactive forms, custom pipes/directives, and global HTTP error handling.
 
 ---
 
-# ✨ Features
+## 🌟 Key Features
 
-### 🔍 Job Browsing
-View a comprehensive list of available job postings with filtering capabilities.
+### 🔍 For Candidates
+- **Job Browsing**: Explore listings with real-time title search and category filters.
+- **Detailed Insights**: View comprehensive job descriptions, salary ranges, and tracking of view counts.
+- **Smart Highlighting**: Featured jobs are automatically highlighted using a **Custom Attribute Directive**.
+- **One-Click Apply**: Seamless application process with professional **Material Dialog confirmation**.
 
-### 📄 Job Details
-Click into individual jobs to view in-depth details, descriptions, and requirements.  
-Automatically tracks job **view counts**.
-
-### 📤 Apply for Jobs
-Candidates can submit job applications directly through the platform.
-
-### 🔐 Company Dashboard
-A protected route requiring authentication, allowing companies to manage their job listings.
-
-### ➕ Post New Jobs
-Authorized companies can create and publish new job opportunities.
-
-### 🎨 Modern UI/UX
-Styled using **Angular Material components** and **custom SCSS** for a clean and responsive design.
+### 🔐 For Recruiters (Protected Dashboard)
+- **Role-Based Access**: Secure dashboard protected by **Angular Route Guards**.
+- **Job Management**: Centralized view of all posted jobs under the company profile.
+- **Applicant Tracking**: Dedicated child routes to view candidate lists, phone numbers, and experience levels for each job.
+- **Real-Time Actions**: Update application status (Pending, Reviewed, Accepted, Rejected) with instant persistence.
 
 ---
 
-# 🛠 Technology Stack
+## 🛠 Technology Stack
 
-| Technology | Description |
-|------------|-------------|
-| Angular | Frontend framework |
-| Angular Material | UI component library |
-| json-server | Mock backend API |
-| SCSS | Styling |
-| Vitest | Unit testing |
-
-**Versions Used**
-
-- Angular `v21.1.0`
-- Node.js `v18+`
-- npm `v9+`
+| Category | Technology |
+|----------|------------|
+| **Core** | Angular v21, TypeScript, RxJS |
+| **UI/UX** | Angular Material, SCSS, Inter Font |
+| **Backend** | JSON Server (Mock REST API) |
+| **Testing** | Vitest, Angular Testing Library |
+| **Tools** | Angular CLI, VS Code, Git |
 
 ---
 
-# 🚀 Getting Started
+## 🏗 Advanced Angular Architecture
 
-Follow the instructions below to run the project locally.
-
----
-
-# 📋 Prerequisites
-
-Make sure you have the following installed:
-
-### Install Node.js
-Download from:
-
-```
-
-[https://nodejs.org](https://nodejs.org)
-
-````
-
-Check versions:
-
-```bash
-node -v
-npm -v
-````
-
-### Install Angular CLI
-
-```bash
-npm install -g @angular/cli
-```
-
-Verify installation:
-
-```bash
-ng version
-```
+- **Routing & Navigation**: Configuration of main routes, route parameters (:id), and professional **Child Routes** for the dashboard.
+- **Security**: Implementation of `AuthGuard` to sanitize access to recruiter-only areas.
+- **Services & DI**: Modular services (`JobService`, `ApplicantService`, `CompanyService`) utilizing Dependency Injection for scalable data flow.
+- **Advanced Forms**: 
+  - **Template-driven**: Simplified login and role selection.
+  - **Reactive**: Complex validation logic for Job Applications and Vacancy Posting.
+- **Pipes & Directives**:
+  - `FilterPipe`: Custom pipe for real-time multi-field filtering.
+  - `HighlightDirective`: Custom directive for visual importance.
+- **HTTP Interceptor**: Global `ErrorInterceptor` to catch server failures and notify users via `MatSnackBar`.
 
 ---
 
-# 📥 Installation
+## 🚀 Getting Started
 
-### 1️⃣ Clone the repository
+### 1. Prerequisites
+- **Node.js**: v18+ 
+- **npm**: v9+
+- **Angular CLI**: `npm install -g @angular/cli`
 
+### 2. Installation
 ```bash
-git clone <your-repository-url>
-```
-
-### 2️⃣ Navigate to the project folder
-
-```bash
+git clone https://github.com/Ankitpaiii/job-portal.git
 cd job-portal
-```
-
-### 3️⃣ Install project dependencies
-
-```bash
 npm install
 ```
 
----
+### 3. Running the Application
+The project requires two simultaneous servers:
 
-# 💻 Run the Project Locally
-
-⚠️ The project requires **two servers running simultaneously**:
-
-1. **Mock Backend Server**
-2. **Angular Frontend Server**
-
----
-
-# ▶️ Step 1: Start the Mock Database Server
-
-Run the following command in the project root directory.
-
+**Terminal A (Mock API):**
 ```bash
 npm run server
 ```
 
-This starts **json-server** and serves data from:
-
-```
-db.json
-```
-
-Server URL:
-
-```
-http://localhost:3000
-```
-
----
-
-# ▶️ Step 2: Start Angular Development Server
-
-Open a **second terminal window** in the project root folder and run:
-
+**Terminal B (Frontend):**
 ```bash
 npm start
 ```
 
-or
+---
 
-```bash
-ng serve
-```
-
-Angular development server will start at:
+## 📂 Project Structure
 
 ```
-http://localhost:4200
+src/app/
+├── components/
+│   ├── job-list/          # List with FilterPipe & HighlightDirective
+│   ├── job-detail/        # View count & dynamic routing
+│   ├── apply-job/         # Reactive Form + MatDialog
+│   ├── company-dashboard/ # Parent Layout + RouterOutlet
+│   │   ├── posted-jobs.ts           # Child Route
+│   │   └── recent-applications.ts   # Child Route
+│   └── confirm-dialog/    # Reusable Material Dialog
+├── guards/                # AuthGuard (Role-based security)
+├── interceptors/          # ErrorInterceptor (Global notifications)
+├── services/              # Job, Applicant, and Company logic
+├── pipes/                 # Custom search filtering
+└── directives/            # Custom UI highlighting
 ```
 
 ---
 
-# 🌐 Open the Application
+## 👥 Contributors (Batch 59)
 
-Once both servers are running, open your browser:
-
-```
-http://localhost:4200
-```
-
-The application supports **live reload**, so changes in code will automatically refresh the page.
+- **Ankit Pai N** (2462036)
+- **Joshua Zachary Jose** (2462093)
+- **Jeevitha A** (2462079)
+- **R Karthik** (2462131)
 
 ---
 
-# 📂 Project Structure
-
-```
-job-portal
-│
-├── src/
-│   ├── app/
-│   │   ├── components/
-│   │   │   ├── job-list
-│   │   │   ├── job-detail
-│   │   │   ├── apply-job
-│   │   │   ├── company-dashboard
-│   │   │   ├── post-job
-│   │   │   └── login
-│   │   │
-│   │   ├── services/
-│   │   │   ├── job.service.ts
-│   │   │   ├── applicant.service.ts
-│   │   │   └── company.service.ts
-│   │   │
-│   │   └── app.routes.ts
-│
-├── db.json
-└── package.json
-```
+## 📄 Documentation
+For detailed technical implementation, component hierarchy, and setup screenshots, please refer to the internal [CIA3 Final Report](CIA3_Final_Report.md).
 
 ---
 
-# 📦 Important Files
-
-### `db.json`
-
-Mock database containing:
-
-* Jobs
-* Companies
-* Applications
-
-### `app.routes.ts`
-
-Defines the **application routing and route guards**.
-
-### `services/`
-
-Handles **HTTP communication with json-server API**.
-
----
-
-# 🧪 Testing
-
-Run unit tests using **Vitest**:
-
-```bash
-npm run test
-```
-
----
-
-# 📦 Build for Production
-
-To generate a production build:
-
-```bash
-npm run build
-```
-
-The compiled files will be generated inside:
-
-```
-dist/
-```
-
----
-
-# 👨‍💻 Development Notes
-
-* Angular Material is used for UI components.
-* JSON Server simulates REST API endpoints.
-* Authentication logic protects the **Company Dashboard**.
-* SCSS is used for styling and responsive layouts.
-
----
-
-# ⭐ Future Improvements
-
-* JWT authentication
-* Real backend (Node.js / Spring Boot)
-* Resume upload support
-* Admin panel
-* Job recommendation system
-
----
-
-
+## ⚖️ License
+This project is developed for academic purposes under the **Advanced JavaScript Frameworks (Angular)** course.
