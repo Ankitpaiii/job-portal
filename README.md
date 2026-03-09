@@ -9,17 +9,6 @@
 [![Material](https://img.shields.io/badge/Angular_Material-UI-009688?style=for-the-badge&logo=angular&logoColor=white)](https://material.angular.io)
 [![JSON Server](https://img.shields.io/badge/JSON_Server-REST_API-FF6C37?style=for-the-badge)](https://github.com/typicode/json-server)
 
-**Course:** Advanced JavaScript Frameworks (Angular)
-
-| Name | Roll Number |
-|------|-------------|
-| Ankit Pai N | 2462036 |
-| Joshua Zachary Jose | 2462093 |
-| Jeevitha A | 2462079 |
-| R Karthik | 2462131 |
-
-**Batch 59**
-
 </div>
 
 ---
